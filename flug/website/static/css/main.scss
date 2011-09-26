@@ -34,7 +34,7 @@ body {
         position: relative;
         top: 1px;
     }
-    
+
     #gradient {
         background-image: linear-gradient(top, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
         background-image: -o-linear-gradient(top, rgb(238,238,238) 0%, rgb(255,255,255) 100%);
@@ -192,6 +192,7 @@ body {
 
         #split_wrapper {
             @include flex-box(horizontal);
+            width: 100%;
 
             & > div {
                 @include flex-child(1);
