@@ -1,0 +1,20 @@
+{% load i18n %}
+<section id="article">
+    <header>
+        <h1><a href="{{ article.get_absolute_url }}" title="Læs indlæg">{{ article.title }}</a></h1>
+    </header>
+    <article>
+        {{ article.rendered_content|safe }}
+    </article>
+    <div class="meta">
+        <div class="buttons" id="buttons">
+            <div id="identishare"></div>
+            <g:plusone size="tall"></g:plusone>
+        </div>
+        <div class="info">
+            <span>af</span> <a href="{% url articles_by_author article.author.username %}" title="flere indlæg af {{ article.author.get_name }}">{{ article.author.get_name }}</a> | <time datetime="{{ article.publish_date|date:"Y-m-d" }}" title="{{ article.publish_date|date:"Y-m-d" }}">{{ article.publish_date|date:"j. F, Y" }}</time>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="http://www.tildehash.com/identishare.php" defer="defer"></script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"> {lang: 'da'} </script>

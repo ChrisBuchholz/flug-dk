@@ -1,0 +1,30 @@
+{% include 'partials/top.html' %}
+
+<div class="banner"></div>
+
+<h1 class="centered">Fynsk fællesskab</h1>
+
+<section class="columns">
+    <article>
+        <p>FLUG er <i>Fyns Linux User Group</i> og er en gruppe af personer med residens på Fyn, der sammen dyrker deres fælles interesse for <a href="http://da.wikipedia.org/wiki/Linux">Linux</a>.</p>
+        <p>Som LUG er vi en del af et større fællesskab af Linux interesanter, både i <a href="http://da.wikipedia.org/wiki/LUG">Danmark</a> og i <a href="http://en.wikipedia.org/wiki/Linux_User_Group">hele verden</a>, og er en ældre en af slagsen, da vi har eksisteret siden 1995, dog med en ordenlig portion stilstand fra tid til anden.</p>
+        <p>Vi er en non-profit forening der for så vidt muligt ikke har nogen økonomi, og vi driver heller ikke nogen form for politisk agenda eller anden skjult dagsorden.</p>
+        <p>I FLUG bestræber vi os på, at vi er tilgængelige for alle fynboere, og afholder arrangementer to gange om måneden &mdash; typisk ét install party/hyggemøde, og et foredrag. Du kan se vores kalender på <a href="/">forsiden</a>.</p>
+    </article><article>
+        <p>Formålet med FLUG er, at skabe et fælles samlingspunkt for fynske Linux enthusiaster, og det er derfor også vores primære fokusgruppe. Dermed sagt, at vi ikke har en lang liste med vedtægter og reglermenter som vi hænger hverdagen op på. Vi er her for hyggens skyld, og det er det vigtigste. Vi er dog en forening, og har en <a href="#bestyrelsen">bestyrelse</a> der mest af alt agere tovholdere for foreningen, så de resterende medlemmer ikke skal belemres med dette.</p>
+        <p></p>
+    </article>
+</section>
+
+<section class="stab" id="bestyrelsen">
+    <header class="coloured">
+        <h2>Bestyrelsen</h2>
+    </header>
+    {% for member in staff %}{% if forloop.first %}<ul class="staff">{% endif %}<li>
+        <div><a href="{{ member.homepage }}"><img src="{{ MEDIA_URL }}{% firstof member.photo 'stockstaffphoto.png' %}" width="140" height="140" /></a></div>
+        <div><a href="{{ member.homepage }}">{{ member.name }}</a></div>
+        <div><p>{{ member.role }}</p></div>
+    </li>{% if forloop.last %}</ul>{% endif %}{% endfor %}
+</section>
+
+{% include 'partials/bottom.html' %}

@@ -1,0 +1,52 @@
+{% include 'partials/top.html' %}
+
+<div id="split_wrapper">
+    <div>
+        <section class="latest_article">
+            <header class="coloured">
+                <h2>Seneste nyt</h2>
+            </header>
+            <ul>
+                {% for article in articles %}<li>
+                    <header>
+                        <h2><a href="{{ article.get_absolute_url }}" title="se artikel">{{ article.title }}</a></h2>
+                    </header>
+                    <article>
+                        {{ article.rendered_content|truncatewords_html:104|safe }}
+                    </article>
+                    <div class="meta">
+                        <div><a href="{{ article.get_absolute_url }}" title="gå til indlæg">gå til indlæg</a></div>
+                        <div><time datetime="{{ article.publish_date|date:"Y-m-d" }}" title="{{ article.publish_date|date:"Y-m-d" }}">{{ article.publish_date|date:"j. F, Y" }}</time></div>
+                    </div>
+                </li>{% endfor %}
+            </ul>
+            <a href="/blog" class="grey_btn">Flere indlæg</a>
+        </section>
+    </div>
+    <aside>
+        <iframe src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=2&amp;bgcolor=%23e3e9ff&amp;src=post%40flug.dk&amp;color=%23182C57&amp;ctz=Europe%2FCopenhagen" style=" border-width:0 " width="300" height="300" frameborder="0" scrolling="no"></iframe>
+        <div class="infobox">
+            <h3>Sociale medier</h3>
+            <ul>
+                <li>
+                    <a href="http://identi.ca/group/flugdk">
+                        <div class="identica"></div>
+                        <span>identi.ca</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.facebook.com/group.php?gid=265625755135">
+                        <div class="facebook"></div>
+                        <span>Facebook</span>
+                    </a>
+                </li>
+            </ul>
+            <h3>Internet Relay Chat</h3>
+            <p>Vi hænger ud på kanalen #flug.dk på serveren <a href="http://freenode.net">irc.freenode.org</a>.
+            <h3>Skriv til os!</h3>
+            <p>Du er velkommen til at kontakte os på <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#112;&#111;&#115;&#116;&#064;&#102;&#108;&#117;&#103;&#046;&#100;&#107;">&#112;&#111;&#115;&#116;&#064;&#102;&#108;&#117;&#103;&#046;&#100;&#107;</a> med hvad du end måtte have på hjertet.</p>
+        </div>
+    </aside>
+</div>
+
+{% include 'partials/bottom.html' %}

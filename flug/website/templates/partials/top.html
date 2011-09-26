@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="da-dk">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+        <meta name="title" content="{{ title }}" />
+        <meta name="description" content="{% firstof article.description|striptags description %}" />
+        <meta name="author" content="chrisbuchholz" />
+        <meta name="keywords" content="{{ keywords }}" />
+        <meta name="copyright" content="{{ copyright }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+
+        {% if title == 'Hjem' %}
+        <title>FLUG &mdash; Fyns Linux User Group</title>
+        {% else %}
+        <title>{% firstof title article.title 'Blog' %} | FLUG &mdash; Fyns Linux User Group</title>
+        {% endif %}
+
+        <link rel="home" href="/" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feeds/latest" />
+        {% load compress %}{% compress css %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.scss" type="text/x-sass" />
+        {% endcompress %}
+        <link href='http://fonts.googleapis.com/css?family=Cantarell:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Antic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id="gradient"></div>
+        <div id="wrapper">
+            <div id="top">
+                <a href="/">
+                    <header>
+                        <h1>FLUG</h1>
+                        <h2>&mdash; Fyns Linux User Group</h2>
+                    </header>
+                </a>
+                <div class="logo"></div>
+            </div>
+
+            <nav id="nav" class="{{ page }}">
+                <ul>
+                    <li><a href="/">Hjem</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/omos/">Om os</a></li>
+                <ul>
+            </nav>
+
+            <section id="content">

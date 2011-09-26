@@ -1,0 +1,16 @@
+{% if forloop.first %}<ol>{% endif %}
+    <li>
+        <div class="bangs">
+            <header>
+                <h2><a href="{{ article.get_absolute_url }}" title="se artikel">{{ article.title }}</a></h2>
+            </header>
+        </div>
+        <article>
+            {{ article.rendered_content|truncatewords_html:104|safe }}
+        </article>
+        <div class="meta">
+            <div><a href="{{ article.get_absolute_url }}" title="gå til indlæg">gå til indlæg</a></div>
+            <div><span>af</span> <a href="{% url articles_by_author article.author.username %}" title="flere indlæg af {{ article.author.get_name }}">{{ article.author.get_name }}</a> | <time datetime="{{ article.publish_date|date:"Y-m-d" }}" title="{{ article.publish_date|date:"Y-m-d" }}">{{ article.publish_date|date:"j. F, Y" }}</time></div>
+        </div>
+    </li>
+{% if forloop.last %}</ol>{% endif %}

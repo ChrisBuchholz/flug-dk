@@ -1,0 +1,11 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}Artikler fra {{ month|date:"F Y" }}{% endblock %}
+
+{% block articles-content %}
+<h2>Artikler fra {{ month|date:"F Y" }}{% ifnotequal paginator.num_pages 1 %}, side {{ page_obj.number }}{% endifnotequal %}</h2>
+
+{% for article in page_obj.object_list %}
+{% include 'articles/_articles.html' %}
+{% endfor %}
+{% endblock %}
