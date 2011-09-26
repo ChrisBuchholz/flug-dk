@@ -1,4 +1,8 @@
             </section>
         </div>
+        {% load compress %}{% compress js %}
+        <script src="{{ STATIC_URL }}js/vendor/jquery-1.6.4.min.js" type="text/javascript" defer="defer"></script>
+        <script src="{{ STATIC_URL }}js/main.js" type="text/javascript" defer="defer"></script>
+        {% endcompress %}
     </body>
 </html>

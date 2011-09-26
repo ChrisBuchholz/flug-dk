@@ -1,6 +1,5 @@
 *.pyc
 .*.swp
 .sass-cache/
-build/
-src/flug/website/static/CACHE/
-src/flug/website/static/img/attach/
+flug/website/static/CACHE/
+flug/website/static/img/attach/

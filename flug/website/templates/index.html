@@ -2,23 +2,11 @@
 
 <div id="split_wrapper">
     <div>
-        <section class="latest_article">
+        <section id="articles" class="latest">
             <header class="coloured">
                 <h2>Seneste nyt</h2>
             </header>
-            <ul>
-                {% for article in articles %}<li>
-                    <header>
-                        <h2><a href="{{ article.get_absolute_url }}" title="se artikel">{{ article.title }}</a></h2>
-                    </header>
-                    <article>
-                        {{ article.rendered_content|truncatewords_html:104|safe }}
-                    </article>
-                    <div class="meta">
-                        <div><a href="{{ article.get_absolute_url }}" title="gå til indlæg">gå til indlæg</a></div>
-                        <div><time datetime="{{ article.publish_date|date:"Y-m-d" }}" title="{{ article.publish_date|date:"Y-m-d" }}">{{ article.publish_date|date:"j. F, Y" }}</time></div>
-                    </div>
-                </li>{% endfor %}
+                {% for article in articles %}{% include 'articles/_articles.html' %}{% endfor %}
             </ul>
             <a href="/blog" class="grey_btn">Flere indlæg</a>
         </section>

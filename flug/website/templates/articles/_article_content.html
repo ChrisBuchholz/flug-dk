@@ -3,12 +3,12 @@
     <header>
         <h1><a href="{{ article.get_absolute_url }}" title="Læs indlæg">{{ article.title }}</a></h1>
     </header>
-    <article>
+    <article id="article-content">
         {{ article.rendered_content|safe }}
     </article>
     <div class="meta">
         <div class="buttons" id="buttons">
-            <div id="identishare"></div>
+            <iframe height="61" width="61" scrolling="no" frameborder="0" src="http://www.tildehash.com/identishare.php?noscript" border="0" marginheight="0" marginwidth="0" allowtransparency="true"></iframe> 
             <g:plusone size="tall"></g:plusone>
         </div>
         <div class="info">
@@ -16,5 +16,4 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="http://www.tildehash.com/identishare.php" defer="defer"></script>
 <script type="text/javascript" src="https://apis.google.com/js/plusone.js"> {lang: 'da'} </script>
