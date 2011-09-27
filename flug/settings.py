@@ -36,8 +36,6 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-SECRET_KEY = '0+vc#&4h2j=+nu)d66-&%tnl8vq4kf(4pxw1=vmkkk=#c95u-y'
-
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -108,9 +106,6 @@ COMPRESS_PRECOMPILERS = (
 )
 
 COMPRESS_OUTPUT_DIR = ''
-
-DISQUS_USER_API_KEY = 'Bw1QH9GjRKYOL1S3p2yFBd47v37bOJ78jx1MaGJawwPDbILMrbRMcOY7OFKxX0XZ'
-DISQUS_FORUM_SHORTNAME = 'flug'
 
 ARTICLE_PAGINATION = 9999999
 ARTICLES_TEASER_LIMIT = 104
