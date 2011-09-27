@@ -21,7 +21,7 @@
         <h2>Bestyrelsen</h2>
     </header>
     {% for member in staff %}{% if forloop.first %}<ul class="staff">{% endif %}<li>
-        <div><a href="{{ member.homepage }}"><img src="{{ MEDIA_URL }}{% firstof member.photo 'stockstaffphoto.png' %}" width="140" height="140" /></a></div>
+        <div><a href="{{ member.homepage }}"><img src="{{ STATIC_URL }}img/{% firstof member.photo 'stockstaffphoto.png' %}" width="140" height="140" /></a></div>
         <div><a href="{{ member.homepage }}">{{ member.name }}</a></div>
         <div><p>{{ member.role }}</p></div>
     </li>{% if forloop.last %}</ul>{% endif %}{% endfor %}

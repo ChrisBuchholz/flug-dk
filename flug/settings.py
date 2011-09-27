@@ -21,8 +21,8 @@ USE_I18N = True
 
 USE_L10N = True
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'website/static/img/')
-MEDIA_URL = '/static/img/'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'website/media/')
+MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'website/static/')
 STATIC_URL = '/static/'
