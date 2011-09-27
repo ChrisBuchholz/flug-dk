@@ -1,4 +1,4 @@
-http://flug.dk/ website project
+Website project source for http://flug.dk.
 
 Required software
 =================
