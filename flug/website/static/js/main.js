@@ -9,6 +9,48 @@
         var version = 0;
         var browser = '';
 
+        // is this a version of chrome?
+        if($.browser.chrome) {
+            userAgent = userAgent.substring(userAgent.indexOf('chrome/') + 7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'google chrome';
+            // if it is chrome then jQuery thinks it's safari so we have to tell it it isn't
+            $.browser.safari = false;
+        }
+
+        // is this a version of rekonq?
+        if($.browser.rekonq) {
+            userAgent = userAgent.substring(userAgent.indexOf('safari/') + 7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'rekonq';
+            // if it is rekonq then jQuery thinks it's safari so we have to tell it it isn't
+            $.browser.safari = false;
+        }
+
+        // is this a version of midori?
+        if($.browser.midori) {
+            userAgent = userAgent.substring(userAgent.indexOf('midori/') + 7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'midori';
+            // if it is epiphany then jQuery thinks it's mozilla and safari so we have to tell it it isn't
+            $.browser.safari = false;
+            $.browser.mozilla = false;
+        }
+
+        // is this a version of epiphany?
+        if($.browser.epiphany) {
+            userAgent = userAgent.substring(userAgent.indexOf('epiphany/') + 9);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'epiphany';
+            // if it is epiphany then jQuery thinks it's mozilla and safari so we have to tell it it isn't
+            $.browser.safari = false;
+            $.browser.mozilla = false;
+        }
+
         // is this a version of iE?
         if($.browser.msie) {
             userAgent = $.browser.version;
@@ -17,19 +59,9 @@
             browser = 'internet explorer';
         }
 
-        // is this a version of chrome?
-        if($.browser.chrome) {
-            userAgent = userAgent.substring(userAgent.indexOf('chrome/') +7);
-            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
-            version = userAgent;
-            browser = 'google chrome';
-            // if it is chrome then jQuery thinks it's safari so we have to tell it it isn't
-            $.browser.safari = false;
-        }
-
         // is this a version of safari?
         if($.browser.safari) {
-            userAgent = userAgent.substring(userAgent.indexOf('safari/') +7);
+            userAgent = userAgent.substring(userAgent.indexOf('safari/') + 7);
             userAgent = userAgent.substring(0, userAgent.indexOf('.'));
             version = userAgent;
             browser = 'safari';
@@ -39,7 +71,7 @@
         if($.browser.mozilla) {
             // is it firefox?
             if(navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
-                userAgent = userAgent.substring(userAgent.indexOf('firefox/') +8);
+                userAgent = userAgent.substring(userAgent.indexOf('firefox/') + 8);
                 userAgent = userAgent.substring(0, userAgent.indexOf('.'));
                 version = userAgent;
                 browser = 'firefox';
@@ -51,38 +83,10 @@
 
         // is this a version of opera?
         if($.browser.opera) {
-            userAgent = userAgent.substring(userAgent.indexOf('version/') +8);
+            userAgent = userAgent.substring(userAgent.indexOf('version/') + 8);
             userAgent = userAgent.substring(0, userAgent.indexOf('.'));
             version = userAgent;
             browser = 'opera';
-        }
-
-        // is this a version of rekonq?
-        if($.browser.rekonq) {
-            userAgent = userAgent.substring(userAgent.indexOf('safari/') +7);
-            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
-            version = userAgent;
-            browser = 'rekonq';
-            // if it is rekonq then jQuery thinks it's safari so we have to tell it it isn't
-            $.browser.safari = false;
-        }
-
-        // is this a version of midori?
-        if($.browser.midori) {
-            userAgent = userAgent.substring(userAgent.indexOf('midori/') +7);
-            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
-            version = userAgent;
-            browser = 'midori';
-        }
-
-        // is this a version of epiphany?
-        if($.browser.epiphany) {
-            userAgent = userAgent.substring(userAgent.indexOf('epiphany/') +7);
-            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
-            version = userAgent;
-            browser = 'epiphany';
-            // if it is epiphany then jQuery thinks it's safari so we have to tell it it isn't
-            $.browser.safari = false;
         }
 
         return {
