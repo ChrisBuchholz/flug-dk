@@ -5,6 +5,7 @@
         $.browser.chrome = /chrome/.test(userAgent);
         $.browser.rekonq = /rekonq/.test(userAgent);
         $.browser.midori = /midori/.test(userAgent);
+        $.browser.epiphany = /epiphany/.test(userAgent);
         var version = 0;
         var browser = '';
 
@@ -74,6 +75,16 @@
             browser = 'midori';
         }
 
+        // is this a version of epiphany?
+        if($.browser.epiphany) {
+            userAgent = userAgent.substring(userAgent.indexOf('epiphany/') +7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'epiphany';
+            // if it is epiphany then jQuery thinks it's safari so we have to tell it it isn't
+            $.browser.safari = false;
+        }
+
         return {
             'name': browser,
             'version': version
@@ -88,7 +99,8 @@
         ['internet explorer', 9],
         ['rekonq', 0],
         ['midori', 0],
-        ['safari', 5]
+        ['safari', 5],
+        ['epiphany', 3]
     ];
 
     var is_supported = false;
