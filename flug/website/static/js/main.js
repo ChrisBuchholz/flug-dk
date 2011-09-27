@@ -2,71 +2,93 @@
     // modified from source: http://api.jquery.com/jQuery.browser/#comment-57066838
     var browser = (function() {
         var userAgent = navigator.userAgent.toLowerCase();
-        $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+        $.browser.chrome = /chrome/.test(userAgent);
+        $.browser.rekonq = /rekonq/.test(userAgent);
+        $.browser.midori = /midori/.test(userAgent);
         var version = 0;
         var browser = '';
 
-        // is this a version of IE?
-        if($.browser.msie){
+        // is this a version of iE?
+        if($.browser.msie) {
             userAgent = $.browser.version;
-            userAgent = userAgent.substring(0,userAgent.indexOf('.'));	
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));	
             version = userAgent;
-            browser = 'Internet Explorer';
+            browser = 'internet explorer';
         }
 
-        // is this a version of Chrome?
-        if($.browser.chrome){
+        // is this a version of chrome?
+        if($.browser.chrome) {
             userAgent = userAgent.substring(userAgent.indexOf('chrome/') +7);
-            userAgent = userAgent.substring(0,userAgent.indexOf('.'));	
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
             version = userAgent;
-            browser = 'Google Chrome';
+            browser = 'google chrome';
             // if it is chrome then jQuery thinks it's safari so we have to tell it it isn't
             $.browser.safari = false;
         }
 
-        // is this a version of Safari?
-        if($.browser.safari){
-            userAgent = userAgent.substring(userAgent.indexOf('safari/') +7);	
-            userAgent = userAgent.substring(0,userAgent.indexOf('.'));
+        // is this a version of safari?
+        if($.browser.safari) {
+            userAgent = userAgent.substring(userAgent.indexOf('safari/') +7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
             version = userAgent;
-            browser = 'Safari';
+            browser = 'safari';
         }
 
-        // is this a version of Mozilla?
-        if($.browser.mozilla){
-            //Is it Firefox?
+        // is this a version of mozilla?
+        if($.browser.mozilla) {
+            // is it firefox?
             if(navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
                 userAgent = userAgent.substring(userAgent.indexOf('firefox/') +8);
-                userAgent = userAgent.substring(0,userAgent.indexOf('.'));
+                userAgent = userAgent.substring(0, userAgent.indexOf('.'));
                 version = userAgent;
-                browser = 'Firefox';
+                browser = 'firefox';
             }
-            // if not then it must be another Mozilla
+            // if not then it must be another mozilla
             else {
             }
         }
 
-        // is this a version of Opera?
-        if($.browser.opera){
+        // is this a version of opera?
+        if($.browser.opera) {
             userAgent = userAgent.substring(userAgent.indexOf('version/') +8);
-            userAgent = userAgent.substring(0,userAgent.indexOf('.'));
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
             version = userAgent;
-            browser = 'Opera';
+            browser = 'opera';
+        }
+
+        // is this a version of rekonq?
+        if($.browser.rekonq) {
+            userAgent = userAgent.substring(userAgent.indexOf('safari/') +7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'rekonq';
+            // if it is rekonq then jQuery thinks it's safari so we have to tell it it isn't
+            $.browser.safari = false;
+        }
+
+        // is this a version of midori?
+        if($.browser.midori) {
+            userAgent = userAgent.substring(userAgent.indexOf('midori/') +7);
+            userAgent = userAgent.substring(0, userAgent.indexOf('.'));
+            version = userAgent;
+            browser = 'midori';
         }
 
         return {
-            'name': browser.toLowerCase(),
+            'name': browser,
             'version': version
         };
     })();
-
 
     // object that defines what the lowest version of a
     // certain browser is suppoted
     supported_browsers = [
         ['firefox', 4],
         ['google chrome', 12],
-        ['internet explorer', 9]
+        ['internet explorer', 9],
+        ['rekonq', 0],
+        ['midori', 0],
+        ['safari', 5]
     ];
 
     var is_supported = false;
