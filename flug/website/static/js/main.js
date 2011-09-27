@@ -77,7 +77,7 @@
         }
     }
 
-    if(is_supported) {
+    if(!is_supported) {
         var not_supported = $('#not-supported');
         not_supported.css('display', 'block');
         $('#your-browser').text(browser.name + ' ' + browser.version);
