@@ -13,9 +13,6 @@ DATABASES = {
     }
 }
 
-MEDIA_ROOT = 'src/flug/website/static/img/'
-STATIC_ROOT = 'src/flug/website/static/'
-
 COMPRESS_PRECOMPILERS = (
     ('text/x-sass', 'sass {infile} {outfile}'),
     # overwrite the uglifyjs command from settings.py to do nothing
