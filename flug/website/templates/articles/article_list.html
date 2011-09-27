@@ -1,7 +1,7 @@
 {% include 'partials/top.html' %}
 
 {% block articles-content %}
-<section id="articles">
+<section>
 {% for article in page_obj.object_list %}
 {% include 'articles/_articles.html' %}
 {% endfor %}

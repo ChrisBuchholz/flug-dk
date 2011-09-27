@@ -27,8 +27,7 @@ body {
 
         &.black {
             color: #333;
-        }
-    }
+    } }
 
     & a:active {
         position: relative;
@@ -83,8 +82,7 @@ body {
 
                 & li {
                     list-style: disc inside;
-                }
-            }
+            } }
 
             & button,
             & button:hover,
@@ -107,9 +105,7 @@ body {
             & button:active {
                 background-color: #ececec;
                 border-top-color: #bbb;
-            }
-        }
-    }
+    } } }
 
     #wrapper {
         display: block;
@@ -147,14 +143,11 @@ body {
                     & h2 {
                         font-size: 2em;
                         margin-left: 8px;
-                    }
-                }
-            }
+            } } }
 
             & .logo {
                 @include flex-child(1);
-            }
-        }
+        } }
 
         & #nav {
             @include border-radius(5px, 5px, 5px, 5px);
@@ -195,8 +188,7 @@ body {
                 & a:hover {
                     background-color: rgba(255, 255, 255, 0.15);
                     border-color: rgba(255, 255, 255, 0);
-                }
-            }
+            } }
 
             &[class=""] li:nth-child(2) a,
             &.index li:nth-child(1) a,
@@ -223,8 +215,7 @@ body {
                 text-align: center;
                 margin: 40px 0;
                 color: #333;
-            }
-        }
+        } }
 
         & h2 {
             font-size: 1.4em;
@@ -240,8 +231,7 @@ body {
             & h1,
             & h2 {
                 color: #fff;
-            }
-        }
+        } }
 
         #split_wrapper {
             @include flex-box(horizontal);
@@ -278,9 +268,7 @@ body {
                     & a.grey_btn:active {
                         background-color: #ececec;
                         border-top-color: #bbb;
-                    }
-                }
-            }
+            } } }
 
             & > aside {
                 @include flex-child(0);
@@ -356,111 +344,28 @@ body {
 
                                     &.facebook {
                                         background-position: -32px 0;
-                                    }
-                                }
-                            }
-                        }
+                        } } } }
 
                         & li:not(:last-child) {
                             margin-right: 4px;
-                        }
-                    }
-                }
-            }
-        }
+        } } } } }
 
-        #articles {
-            & > ul {
-                & > li {
-                    & > .bangs {
-                        @include flex-box(horizontal);
-                        width: 100%;
-
-                        & > header {
-                            @include flex-child(1);
-                            padding-right: 8px;
-
-                            & > h2 {
-                                & a,
-                                & a:link,
-                                & a:visited,
-                                & a:hover {
-                                    display: block;
-                                    color: #285a92;
-                                }
-                            }
-                        }
-
-                        & > a {
-                            @include flex-box(0);
-                            margin: 0 0 0 5px;
-
-                            & img {
-                                @include border-radius(2px, 2px, 2px, 2px);
-                            }
-                        }
-
-                    }
-
-                    & > article {
-                        text-align: justify;
-                    }
-
-                    & > .meta {
-                        @include flex-box(horizonal);
-                        margin-top: 8px;
-                        font-size: 0.9em;
-                        width: 100%;
-
-                        & > div {
-                            @include flex-child(1);
-
-                            &:last-child{
-                                text-align: right;
-
-                                & a,
-                                & a:link,
-                                & a:visited,
-                                & a:hover,
-                                & a:active,
-                                & span {
-                                    font-weight: bold;
-                                    color: #333;
-                                }
-
-                                & > time {
-                                    font-weight: normal;
-                                }
-                            }
-
-                        }
-                    }
-                }
-
-                & > li:not(:last-child) {
-                    padding-bottom: 24px;
-                    border-bottom: 1px dotted #ccc;
-                    margin-bottom: 24px;
-                }
-            }
-        }
-
-        #article {
+        .article {
             margin-bottom: 32px;
 
             & > header {
-                margin-bottom: 8px;
-
                 & > h1 {
+                    &.small {
+                        font-size: 1.4em;
+                    }
+
                     & a,
                     & a:link,
                     & a:visited,
                     & a:hover {
                         display: block;
                         color: #285a92;
-                    }
-                }
-            }
+            } } }
 
             & > article {
                 text-align: justify;
@@ -468,12 +373,20 @@ body {
 
             & > .meta {
                 @include flex-box(horizontal);
-                margin-top: 24px;
-                border-top: 1px dotted #ccc;
-                padding-top: 24px;
+                margin-top: 16px;
                 width: 100%;
 
-                & > .buttons {
+                &.small {
+                    font-size: 0.9em;
+                }
+
+                &.bordered {
+                    margin-top: 24px;
+                    border-top: 1px dotted #ccc;
+                    padding-top: 24px;
+                }
+
+                & > div:nth-child(1) {
                     @include flex-child(1);
 
                     & > div,
@@ -483,7 +396,7 @@ body {
                     }
                 }
 
-                & > .info {
+                & > div:nth-child(2) {
                     @include flex-child(1);
                     text-align: right;
 
@@ -499,10 +412,14 @@ body {
 
                     & > time {
                         font-weight: normal;
-                    }
-                }
-            }
-        }
+            } } }
+
+            &.list:not(:last-child) {
+                padding-bottom: 24px;
+                border-bottom: 1px dotted #ccc;
+                margin-bottom: 24px;
+        } }
+
 
         & .staff {
             font-size: 0.9em;
@@ -533,14 +450,11 @@ body {
                     & a:active {
                         color: #333;
                         font-weight: bold;
-                    }
-                }
-            }
+            } } }
 
             & li:nth-child(5n) {
                 margin-right: 0;
-            }
-        }
+        } }
 
         #article-content {
             & ul {
@@ -548,16 +462,14 @@ body {
 
                 & li {
                     list-style: disc outside;
-                }
-            }
+            } }
 
             & ol {
                 margin: 8px 0 8px 16px;
 
                 & li {
                     list-style: decimal outside;
-                }
-            }
+            } }
 
             & p:not(:last-child) {
                 margin-bottom: 16px;
@@ -578,9 +490,7 @@ body {
 
             & h3 {
                 font-size: 1.1em;
-            }
-        }
-    }
+    } } }
 
     & .banner {
         @include border-radius(10px, 10px, 10px, 10px);
@@ -602,9 +512,7 @@ body {
 
         & article:nth-child(n+2) {
             margin-right: 0;
-        }
-    }
-}
+} } }
 
 @media print {
   /* html5 boilerplate --- */

@@ -1,17 +1,17 @@
 {% load i18n %}
-<section id="article">
+<section class="article">
     <header>
         <h1><a href="{{ article.get_absolute_url }}" title="Læs indlæg">{{ article.title }}</a></h1>
     </header>
     <article id="article-content">
         {{ article.rendered_content|safe }}
     </article>
-    <div class="meta">
-        <div class="buttons" id="buttons">
+    <div class="meta bordered">
+        <div id="buttons">
             <iframe height="61" width="61" scrolling="no" frameborder="0" src="http://www.tildehash.com/identishare.php?noscript" border="0" marginheight="0" marginwidth="0" allowtransparency="true"></iframe> 
             <g:plusone size="tall"></g:plusone>
         </div>
-        <div class="info">
+        <div>
             <span>af</span> <a href="{% url articles_by_author article.author.username %}" title="flere indlæg af {{ article.author.get_name }}">{{ article.author.get_name }}</a> | <time datetime="{{ article.publish_date|date:"Y-m-d" }}" title="{{ article.publish_date|date:"Y-m-d" }}">{{ article.publish_date|date:"j. F, Y" }}</time>
         </div>
     </div>
