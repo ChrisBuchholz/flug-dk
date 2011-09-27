@@ -9,9 +9,6 @@ def index(request):
     stash = {
         'page': 'index',
         'title': 'Hjem',
-        'description': 'Fyens Linux User Group',
-        'keywords': '',
-        'copyright': '',
         'articles': Article.objects.live()[0:2]
     }
 
@@ -23,9 +20,6 @@ def about(request):
     stash = {
         'page': 'about',
         'title': 'Om os',
-        'description': 'Fyens Linux User Group',
-        'keywords': '',
-        'copyright': '',
         'staff': staff
     }
 

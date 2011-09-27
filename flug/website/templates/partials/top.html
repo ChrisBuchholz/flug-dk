@@ -3,11 +3,10 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf8" />
         <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
-        <meta name="title" content="{{ title }}" />
-        <meta name="description" content="{% firstof article.description|striptags description %}" />
-        <meta name="author" content="chrisbuchholz" />
-        <meta name="keywords" content="{{ keywords }}" />
-        <meta name="copyright" content="{{ copyright }}" />
+        <meta name="description" content="{% firstof article.description|striptags 'Fyens Linux User Group' %}" />
+        <meta name="author" content="chrisbuchholz, http://www.chrisbuchholz.me" />
+        <meta name="keywords" content="flug, fyn, linux, lug" />
+        <meta name="copyright" content="copyright (c) 2011 FLUG" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
         {% if title == 'Hjem' %}
