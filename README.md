@@ -1,7 +1,7 @@
-Website project source for http://flug.dk.
+Website project source for http://flug.dk
+=========================================
 
-Required software
-=================
+## Required software
 
 * Python 2.7
 * Django 1.3.1
