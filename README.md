@@ -5,7 +5,7 @@ Website project source for http://flug.dk
 
 * Python 2.7
 * Django 1.3.1
-* django-articles 2.1.1
+* django-articles 2.1.1 (is now bundled in /lib)
 * django-compressor
 * django-markdown
 * mysql-python
