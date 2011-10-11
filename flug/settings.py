@@ -58,12 +58,6 @@ TEMPLATE_DIRS = (
     PROJECT_DIR + "/website/templates"
 )
 
-# Add the lib/ directory to the path for external apps
-EXTERNAL_APPS_PATH = os.path.join(PROJECT_DIR, "lib")
-
-import sys
-sys.path.insert(0, EXTERNAL_APPS_PATH)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
